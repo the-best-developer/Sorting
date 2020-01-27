@@ -86,6 +86,32 @@ def insertion_sort( arr ):
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort( arr ):
 
+    # sorting is our boolean to control weather our array has been completely sorted
+    sorting = True
+
+    # Loop while sorting is equal to True
+    while sorting:
+
+        # Set sorting to false at beginning of loop
+        # This is to end the loop if sorting is complete
+        sorting = False
+
+        # Loop through array
+        for i in range(0, len(arr) - 1):
+            
+            # check if item at current index is larger then its neighbor at i + 1
+            if arr[i + 1] < arr[i]:
+
+                # If we found a neighbor, that means the our array is not yet sorted
+                sorting = True
+
+                # copy values
+                new_val = arr[i + 1]
+                old_val = arr[i]
+                # swap values
+                arr[i] = new_val
+                arr[i + 1] = old_val
+
     return arr
 
 
@@ -96,4 +122,5 @@ def count_sort( arr, maximum=-1 ):
 
 print(test_array)
 # print(new_array_sort(test_array))
-print(insertion_sort(test_array))
+# print(insertion_sort(test_array))
+print(bubble_sort(test_array))
