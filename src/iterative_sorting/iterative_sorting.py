@@ -1,6 +1,6 @@
 # TO-DO: Complete the selection_sort() function below 
 
-test_array = [ 4, 2, 3, 1, 9, 8, 7, 6, 5 ]
+test_array = [ 3, 2, 3, 1, 9, 8, 7, 6, 5 ]
 
 ##################################################
 # 
@@ -116,11 +116,25 @@ def bubble_sort( arr ):
 
 
 # STRETCH: implement the Count Sort function below
-def count_sort( arr, maximum=-1 ):
+def count_sort( arr, maximum=10 ):
 
+    counter_array = [0] * maximum
+    print(counter_array)
+    for i in range(0, len(arr)):
+        counter_array[arr[i]] += 1
+    print(counter_array)
+    
+    for x in range(0, len(counter_array)):
+        if counter_array[x] != 0:
+            for j in range(0, counter_array[x]):
+                arr.append(x)
+                arr.pop(0)
+    
+            
     return arr
 
 print(test_array)
 # print(new_array_sort(test_array))
 # print(insertion_sort(test_array))
-print(bubble_sort(test_array))
+# print(bubble_sort(test_array))
+print(count_sort(test_array))
