@@ -118,13 +118,24 @@ def bubble_sort( arr ):
 # STRETCH: implement the Count Sort function below
 def count_sort( arr, maximum=10 ):
 
+    # Create a blank array the same length as the highest number (maximum)
+    # the array is initialized with 0
+    # each index represents the number identified
+    # the value at that index is the times seen
+    # ex. arr[4] = 2 would mean 4 has been seen twice
     counter_array = [0] * maximum
-    print(counter_array)
+
+    # Loop through array
     for i in range(0, len(arr)):
+        # match the value at arr[i] with the index value of counter_array
+        # add a + 1 to that index
         counter_array[arr[i]] += 1
+
     print(counter_array)
     
+    # Loop through the counter array
     for x in range(0, len(counter_array)):
+        # If a number is found, append the index
         if counter_array[x] != 0:
             for j in range(0, counter_array[x]):
                 arr.append(x)
